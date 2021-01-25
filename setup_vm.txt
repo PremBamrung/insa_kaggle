@@ -1,0 +1,6 @@
+nvidia driver :
+https://cloud.google.com/compute/docs/gpus/install-drivers-gpu#ubuntu-driver-steps
+
+miniconda :
+https://dev.to/waylonwalker/installing-miniconda-on-linux-from-the-command-line-4ad7
+
