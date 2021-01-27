@@ -14,7 +14,7 @@
   - [Show your support](#show-your-support)
 
 ## Description
-<h1 align="center"><img src="./logos-defi-insa.svg" height="500"></h1>
+<h1 align="center"><img src="images/logos-defi-insa.svg" height="500"></h1>
 This is our repository for the  5th edition of the so-called Défi IA.
 
 This edition of the Défi IA pertains to NLP. The task is straightforward: assign the correct job category to a job description. This is thus a **multi-class classification** task with 28 classes to choose from.
@@ -34,7 +34,7 @@ The original aspect of this competition is that there will be 3 tracks on which 
 > pomme de terre
 
 ##  Results
-We ended at the 14th place in the private leaderboard with a private score of `0.81026`.
+We ended at the `14th place` in the private leaderboard with a private score of `0.81026`.
 
 Below are all of our submissions from latest to first submission.
 
@@ -119,7 +119,7 @@ python run
 **Team 3TP** Mastère Spécialisé Valorisation des Données Massives (**VALDOM**)
 
 
-<img src=logo_insa_toulouse.png height="30"/> <img src=logo_n7.png height="30"/>
+<img src=images/logo_insa_toulouse.png height="30"/> <img src=images/logo_n7.png height="30"/>
 
 👤 **Premchanok BAMRUNG**
 👤 **Thibault DELMON**
