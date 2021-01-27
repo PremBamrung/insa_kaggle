@@ -56,13 +56,26 @@ if (projectHomepage) {
 ## Computing Resources
 
 
-- = name %> = value %>
+Prototyping was done on our `local desktop` or using free cloud resources such as `Google Colab` or `Kaggle Kernel`.
+
+Local desktop specs:
+- CPU :  i7 4770K 8 threads
+- GPU : Nvidia GTX 1060 6 Go
+- Ram : 16 Go
+
+Complete training was done on Google Cloud Platform VM:
+- CPU : Xeon 8 threads
+- GPU : Nvidia Telsa V100 16 Go
+- Ram : 30 Go
 
 
 ## Reproductibility
+In order to reproduce our result, you have to recreate our virtual environment. We recommend using `conda` to create an environment and to install the dependencies using the `requirements.txt` file.
 
-```sh
-= installCommand %>
+```bash
+conda create -n defi_ia python=3.7
+conda activate defi_ia
+pip install -r requirements.txt
 ```
 
 ## Run tests
