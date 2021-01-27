@@ -34,20 +34,20 @@ if (projectHomepage) {
 
 ##  Results
 
-| competition-submissions__info-time 2 | competition-submissions__info-text            | Private Socre | Public Score |
-|--------------------------------------|-----------------------------------------------|---------------|--------------|
-| 7 days ago                           | DNN + Transformers 110 epochs                 | 0.73021       | 0.73073      |
-| 7 days ago                           | DNN + Transformers                            | 0.79244       | 0.78637      |
-| 16 days ago                          | Roberta Bert Xlnet 2 epochs voting lenght 256 | 0.81026       | 0.80776      |
-| 16 days ago                          | Roberta Bert Xlnet 2 epochs voting            | 0.80636       | 0.80179      |
-| 17 days ago                          | Roberta base 2 epochs first phrase 20 characs | 0.69292       | 0.68064      |
-| 17 days ago                          | Roberta base 2 epochs clean text              | 0.79886       | 0.79813      |
-| 24 days ago                          | Roberta Large 3 epochs                        | 0.77888       | 0.78147      |
-| a month ago                          | Roberta Base 5 epochs                         | 0.79442       | 0.79318      |
-| a month ago                          | xlnet-base-cased 2 epochs                     | 0.79953       | 0.79171      |
-| a month ago                          | Roberta-base 2 epochs | 0.79903       | 0.79789      |
-| a month ago                          | Bert-base-cased 2 epochs   | 0.79475       | 0.79647      |
-| 3 months ago                         | ULMFIT| 0.78005       | 0.77978      |
+| Time         | Submissions                                   | Private Score | Public Score |
+|--------------|-----------------------------------------------|---------------|--------------|
+| 7 days ago   | DNN + Transformers 110 epochs                 | 0.73021       | 0.73073      |
+| 7 days ago   | DNN + Transformers                            | 0.79244       | 0.78637      |
+| 16 days ago  | Roberta Bert Xlnet 2 epochs voting lenght 256 | 0.81026       | 0.80776      |
+| 16 days ago  | Roberta Bert Xlnet 2 epochs voting            | 0.80636       | 0.80179      |
+| 17 days ago  | Roberta base 2 epochs first phrase 20 characs | 0.69292       | 0.68064      |
+| 17 days ago  | Roberta base 2 epochs clean text              | 0.79886       | 0.79813      |
+| 24 days ago  | Roberta Large 3 epochs                        | 0.77888       | 0.78147      |
+| a month ago  | Roberta Base 5 epochs                         | 0.79442       | 0.79318      |
+| a month ago  | xlnet-base-cased 2 epochs                     | 0.79953       | 0.79171      |
+| a month ago  | Roberta-base 2 epochs                         | 0.79903       | 0.79789      |
+| a month ago  | Bert-base-cased 2 epochs                      | 0.79475       | 0.79647      |
+| 3 months ago | ULMFIT                                        | 0.78005       | 0.77978      |
 
 ##
 
@@ -74,7 +74,9 @@ if (projectHomepage) {
 
 ## Author
 **Team 3TP** Mastère Spécialisé Valorisation des Données Massives (**VALDOM**)
- <img src=logo_insa_toulouse.png height="30"/> <img src=logo_n7.png height="30"/>
+
+
+<img src=logo_insa_toulouse.png height="30"/> <img src=logo_n7.png height="30"/>
 
 👤 **Premchanok BAMRUNG**
 👤 **Thibault DELMON**
