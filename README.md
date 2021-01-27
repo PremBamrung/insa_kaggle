@@ -21,8 +21,8 @@ This edition of the Défi IA pertains to NLP. The task is straightforward: assig
 
 ### Data
 The data has been retrieved from CommonCrawl. The latter has been famously used to train OpenAI's GPT-3 model. The data is therefore representative of what can be found on the English speaking part of the Internet, and thus contains a certain amount of bias. One of the goals of this competition is to design a solution that is both accurate as well as fair.
-The **train** set contains **217,197** sample of job descriptions  as well as their labels and genders.
-The **test** set contains **54,300** sample of job descriptions as well as their genders. This is the set used for submissions.
+The **train set** contains **217,197 sample** of job descriptions  as well as their labels and genders.
+The **test set** contains **54,300 sample** of job descriptions as well as their genders. This is the set used for submissions.
 
 
 ### Evaluation
@@ -39,18 +39,18 @@ We ended at the `14th place` in the private leaderboard with a private score of 
 Below are all of our submissions from latest to first submission.
 
 
-| N°         | Submissions                                   | Private Score | Public Score |
-|--------------|-----------------------------------------------|---------------|--------------|
-| 10   | Roberta Bert Xlnet 2 epochs voting lenght 256 | 0.81026       | 0.80776      |
-| 9   | Roberta Bert Xlnet 2 epochs voting            | 0.80636       | 0.80179      |
-| 8   | Roberta base 2 epochs first phrase 20 characs | 0.69292       | 0.68064      |
-| 7   | Roberta base 2 epochs clean text              | 0.79886       | 0.79813      |
-| 6   | Roberta Large 3 epochs                        | 0.77888       | 0.78147      |
-| 5   | Roberta Base 5 epochs                         | 0.79442       | 0.79318      |
-| 4   | xlnet-base-cased 2 epochs                     | 0.79953       | 0.79171      |
-| 3   | Roberta-base 2 epochs                         | 0.79903       | 0.79789      |
-| 2   | Bert-base-cased 2 epochs                      | 0.79475       | 0.79647      |
-| 1 | ULMFIT                                        | 0.78005       | 0.77978      |
+| N° | Submissions                                   | Private Score | Public Score |
+|----|-----------------------------------------------|---------------|--------------|
+| 10 | Roberta Bert Xlnet 2 epochs voting lenght 256 | 0.81026       | 0.80776      |
+| 9  | Roberta Bert Xlnet 2 epochs voting            | 0.80636       | 0.80179      |
+| 8  | Roberta base 2 epochs first phrase 20 characs | 0.69292       | 0.68064      |
+| 7  | Roberta base 2 epochs clean text              | 0.79886       | 0.79813      |
+| 6  | Roberta Large 3 epochs                        | 0.77888       | 0.78147      |
+| 5  | Roberta Base 5 epochs                         | 0.79442       | 0.79318      |
+| 4  | xlnet-base-cased 2 epochs                     | 0.79953       | 0.79171      |
+| 3  | Roberta-base 2 epochs                         | 0.79903       | 0.79789      |
+| 2  | Bert-base-cased 2 epochs                      | 0.79475       | 0.79647      |
+| 1  | ULMFIT                                        | 0.78005       | 0.77978      |
 
 
 
@@ -59,21 +59,21 @@ Training runtime per epoch using Roberta base:
 
 
 
-GPU | l=128 b=16 | l=128 b=32 | l=256 b=16 | l=256 b=32 |
+GPU | lenght=128 batch=16 | lenght=128 batch=32 | lenght=256 batch=16 | lenght=256 batch=32 |
 |--------------|-----------|-----|---|---|
-GTX 1060  | ...s | ...s | ...s | ...s |
+GTX 1060  | 1h 23min | Out of memory | Out of memory | Out of memory |
 K80  | ...s | ...s | ...s | ...s |
 V100  | ...s | ...s | ...s | ...s |
 
 
 
-Preprocessing runtime per :
-Nb Core | Cleaning | Language | Complexity |
-|--------------|-----------|-----|---|
-1| ...s | ...s | ...s |
-2  | ...s | ...s | ...s |
-4  | ...s | ...s | ...s |
-8  | ...s | ...s | ...s |
+Preprocessing runtime by preprocessing task :
+Nb Core | Cleaning | Language | Complexity | Distance |
+|--------------|-----------|-----|---|---|
+1| 30 s | 13 min 57 s | 2 min 19 s |1 h 56 min 21 s |
+2  | 16 s | 6 min 57 s | 55 s |1h 34s |
+4  | 9 s | 3 min 45 s| 26 s |29 min 54 s |
+8  | 8 s | 3 min 16 s| 24 s |20 min 44 s |
 
 
 
@@ -103,6 +103,9 @@ conda create -n defi_ia python=3.7
 conda activate defi_ia
 pip install -r requirements.txt
 ```
+
+#### Downloading data
+
 #### Training
 ```python
 import pickle
@@ -113,7 +116,7 @@ import pickle
 ```bash
 python run
 ```
-
+####
 
 ## Author
 **Team 3TP** Mastère Spécialisé Valorisation des Données Massives (**VALDOM**)
