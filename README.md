@@ -26,16 +26,20 @@ This is our repository for the  5th edition of the so-called Défi IA.
 This edition of the Défi IA pertains to NLP. The task is straightforward: assign the correct job category to a job description. This is thus a **multi-class classification** task with 28 classes to choose from.
 
 ### Data
-The data has been retrieved from CommonCrawl. The latter has been famously used to train OpenAI's GPT-3 model. The data is therefore representative of what can be found on the English speaking part of the Internet, and thus contains a certain amount of bias. One of the goals of this competition is to design a solution that is both accurate as well as fair.
+The data has been retrieved from [CommonCrawl](https://commoncrawl.org/). The latter has been famously used to train OpenAI's GPT-3 model. The data is therefore representative of what can be found on the English speaking part of the Internet, and thus contains a certain amount of bias. One of the goals of this competition is to design a solution that is both accurate as well as fair.
 The **train set** contains **217,197 sample** of job descriptions  as well as their labels and genders.
 The **test set** contains **54,300 sample** of job descriptions as well as their genders. This is the set used for submissions.
 
 
 ### Evaluation
 
-The original aspect of this competition is that there will be 3 tracks on which solutions will be ranked. First of all, solutions are ranked according to the Macro F1 metric, which will be used to build the [Kaggle leaderboard](https://www.kaggle.com/c/defi-ia-insa-toulouse/leaderboard). From Scikit-learn documentation :
+The original aspect of this competition is that there will be 2 tracks on which solutions will be ranked. First of all, solutions are ranked according to the ```Macro F1``` metric, which will be used to build the [Kaggle leaderboard](https://www.kaggle.com/c/defi-ia-insa-toulouse/leaderboard). From Scikit-learn documentation :
 
 > The F1 score can be interpreted as a weighted average of the precision and recall, where an F1 score reaches its best value at 1 and worst score at 0. The relative contribution of precision and recall to the F1 score are equal.
+
+Then, submissions will be  ranked according to their fairness with respect to the provided genders. To be specific, the average demographic parity across all classes (```disparate impact```) will be measured.
+
+> Essentially, we will look at the individual the disparate impact of each job with respect to both genders, and then compute the non-weighted average of these disparate impacts.
 ************
 #  Results
 We ended at the `14th place` in the private leaderboard with a private score of `0.81026`.
@@ -142,7 +146,7 @@ FAMILYMODEL = "roberta-base"
 - LENGHT : input lenght use in the transformers model, how many characters should the model take as input
 - BATCH : batchsize use for training and testing
 - FAMILY : type of model or architecture  you want to use (bert, roberta, xlnet, [see more](https://huggingface.co/transformers/pretrained_models.html))
-- FAMILYMODEL : model id [see more](https://huggingface.co/transformers/pretrained_models.html)
+- FAMILYMODEL : model id (roberta-base, bert-base case, [see more](https://huggingface.co/transformers/pretrained_models.html))
 
 Once you have set the parameters of the model you want to train, execute the script inside the script directory:
 
@@ -162,7 +166,7 @@ Another script is provided to train multiple model at the same time. The same pa
 model = ClassificationModel(
     FAMILY, FAMILYMODEL, num_labels=len(eval_df.labels.unique()), args=model_args)
 ```
-The models is saved the same way as for training a single model (see before).
+The models are saved the same way as for training a single model (see before).
 
 
 ### Prediction
