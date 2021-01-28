@@ -1,8 +1,8 @@
 # <h1 align="center">Welcome to our [<img src="https://kaggle.com/static/images/site-logo.png" height="50" style="margin-bottom:-15px" />](https://kaggle.com) repo 👋</h1>
 
-# Table of content
-- [<h1 align="center">Welcome to our <img src="https://kaggle.com/static/images/site-logo.png" height="50" style="margin-bottom:-15px" /> repo 👋</h1>](#h1-aligncenterwelcome-to-our--repo-h1)
-- [Table of content](#table-of-content)
+
+
+
 - [Description](#description)
       - [Data](#data)
       - [Evaluation](#evaluation)
@@ -42,18 +42,18 @@ We ended at the `14th place` in the private leaderboard with a private score of 
 Below are all of our submissions from latest to first submission.
 
 
-| N° | Submissions                                   | Private Score | Public Score |
-|----|----------------------------------------------:|--------------:|-------------:|
-| 10 | Roberta Bert Xlnet 2 epochs voting lenght 256 | **0.81026**   | 0.80776      |
-| 9  | Roberta Bert Xlnet 2 epochs voting            | 0.80636       | 0.80179      |
-| 8  | Roberta base 2 epochs first phrase 20 characs | 0.69292       | 0.68064      |
-| 7  | Roberta base 2 epochs clean text              | 0.79886       | 0.79813      |
-| 6  | Roberta Large 3 epochs                        | 0.77888       | 0.78147      |
-| 5  | Roberta Base 5 epochs                         | 0.79442       | 0.79318      |
-| 4  | xlnet-base-cased 2 epochs                     | 0.79953       | 0.79171      |
-| 3  | Roberta-base 2 epochs                         | 0.79903       | 0.79789      |
-| 2  | Bert-base-cased 2 epochs                      | 0.79475       | 0.79647      |
-| 1  | ULMFIT                                        | 0.78005       | 0.77978      |
+| N°  |                                   Submissions | Private Score | Public Score |
+| --- | --------------------------------------------: | ------------: | -----------: |
+| 10  | Roberta Bert Xlnet 2 epochs voting lenght 256 |   **0.81026** |      0.80776 |
+| 9   |            Roberta Bert Xlnet 2 epochs voting |       0.80636 |      0.80179 |
+| 8   | Roberta base 2 epochs first phrase 20 characs |       0.69292 |      0.68064 |
+| 7   |              Roberta base 2 epochs clean text |       0.79886 |      0.79813 |
+| 6   |                        Roberta Large 3 epochs |       0.77888 |      0.78147 |
+| 5   |                         Roberta Base 5 epochs |       0.79442 |      0.79318 |
+| 4   |                     xlnet-base-cased 2 epochs |       0.79953 |      0.79171 |
+| 3   |                         Roberta-base 2 epochs |       0.79903 |      0.79789 |
+| 2   |                      Bert-base-cased 2 epochs |       0.79475 |      0.79647 |
+| 1   |                                        ULMFIT |       0.78005 |      0.77978 |
 
 
 
@@ -85,7 +85,7 @@ Complete training was done on Google Cloud Platform VM:
 
 
 |         GPU | lenght=128 batch=16 | lenght=128 batch=32 | lenght=256 batch=16 | lenght=256 batch=32 |
-|------------:|--------------------:|--------------------:|--------------------:|--------------------:|
+| ----------: | ------------------: | ------------------: | ------------------: | ------------------: |
 |    GTX 1060 |            1h 23min |       Out of memory |       Out of memory |       Out of memory |
 |    Tesla T4 |         26 min 40 s |         21 min 29 s |         45 min 52 s |          42 min 44s |
 | Tesla  V100 |         14 min 35 s |          9 min 18 s |          20 min 2 s |         15 min 17 s |
@@ -94,7 +94,7 @@ Complete training was done on Google Cloud Platform VM:
 
 **Preprocessing runtime by preprocessing task :**
 | Nb Core | Cleaning |    Language | Complexity |        Distance |
-|--------:|---------:|------------:|-----------:|----------------:|
+| ------: | -------: | ----------: | ---------: | --------------: |
 |       1 |     30 s | 13 min 57 s | 2 min 19 s | 1 h 56 min 21 s |
 |       2 |     16 s |  6 min 57 s |       55 s |         1h 34 s |
 |       4 |      9 s |  3 min 45 s |       26 s |     29 min 54 s |
@@ -138,7 +138,7 @@ FAMILYMODEL = "roberta-base"
 **Where :**
 - TEST : whether you just want to see if the whole script run (`True`) on a subset of the data (`SAMPLE`) or not
 - EPOCH : number of epoch you want to train on
-- LENGHT : lenght use in the transformers model, how many characters should the model take as input
+- LENGHT : input lenght use in the transformers model, how many characters should the model take as input
 - BATCH : batchsize use for training and testing
 - FAMILY : type of model or architecture  you want to use (bert, roberta, xlnet, [see more](https://huggingface.co/transformers/pretrained_models.html))
 - FAMILYMODEL : model id [see more](https://huggingface.co/transformers/pretrained_models.html)
@@ -175,7 +175,7 @@ data_path = "../data/"
 test = pickle.load(open(data_path + "test.pkl", "rb"))
 
 roberta = pickle.load(open(model_path+"roberta.pkl", "rb"))
-test["roberta"], _ = roberta.predict(test.cleaned)
+test["prediction"], probabilities = roberta.predict(test.cleaned)
 ```
 Change `roberta.pkl` into the name of your model. A few models are provided in the `/model` directory but you have to download them using the provided bash script :
 
