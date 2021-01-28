@@ -1,17 +1,22 @@
 # <h1 align="center">Welcome to our [<img src="https://kaggle.com/static/images/site-logo.png" height="50" style="margin-bottom:-15px" />](https://kaggle.com) repo 👋</h1>
 
-
 # Table of content
-  - [Description](#description)
-    - [Data](#data)
-    - [Evaluation](#evaluation)
-  - [Results](#results)
-  - [Computing Resources](#computing-resources)
-  - [Reproductibility](#reproductibility)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Author](#author)
-  - [Show your support](#show-your-support)
+- [<h1 align="center">Welcome to our <img src="https://kaggle.com/static/images/site-logo.png" height="50" style="margin-bottom:-15px" /> repo 👋</h1>](#h1-aligncenterwelcome-to-our--repo-h1)
+- [Table of content](#table-of-content)
+- [Description](#description)
+      - [Data](#data)
+      - [Evaluation](#evaluation)
+- [Results](#results)
+- [Computing Resources](#computing-resources)
+      - [Runtime](#runtime)
+- [Reproductibility](#reproductibility)
+      - [Environment](#environment)
+      - [Downloading data](#downloading-data)
+      - [Training](#training)
+          - [Single model](#single-model)
+          - [Multiple model](#multiple-model)
+      - [Prediction](#prediction)
+- [Author](#author)
 
 # Description
 <h1 align="center"><img src="images/logos-defi-insa.svg" height="500"></h1>
@@ -38,7 +43,7 @@ Below are all of our submissions from latest to first submission.
 
 
 | N° | Submissions                                   | Private Score | Public Score |
-|----|-----------------------------------------------|---------------|--------------|
+|----|----------------------------------------------:|--------------:|-------------:|
 | 10 | Roberta Bert Xlnet 2 epochs voting lenght 256 | **0.81026**   | 0.80776      |
 | 9  | Roberta Bert Xlnet 2 epochs voting            | 0.80636       | 0.80179      |
 | 8  | Roberta base 2 epochs first phrase 20 characs | 0.69292       | 0.68064      |
@@ -52,27 +57,6 @@ Below are all of our submissions from latest to first submission.
 
 
 
-#### Runtime
-
-
-**Training runtime per epoch using Roberta base:**
-
-
-|      GPU | lenght=128 batch=16 | lenght=128 batch=32 | lenght=256 batch=16 | lenght=256 batch=32 |
-|---------:|--------------------:|--------------------:|--------------------:|--------------------:|
-| GTX 1060 |            1h 23min |       Out of memory |       Out of memory |       Out of memory |
-|       T4 |         26 min 40 s |         21 min 29 s |         45 min 52 s |          42 min 44s |
-|     V100 |         14 min 35 s |          9 min 18 s |          20 min 2 s |         15 min 17 s |
-
-
-
-**Preprocessing runtime by preprocessing task :**
-| Nb Core | Cleaning |    Language | Complexity |        Distance |
-| ------: | -------: | ----------: | ---------: | --------------: |
-|       1 |     30 s | 13 min 57 s | 2 min 19 s | 1 h 56 min 21 s |
-|       2 |     16 s |  6 min 57 s |       55 s |          1h 34s |
-|       4 |      9 s |  3 min 45 s |       26 s |     29 min 54 s |
-|       8 |      8 s |  3 min 16 s |       24 s |     20 min 44 s |
 
 
 
@@ -93,6 +77,29 @@ Complete training was done on Google Cloud Platform VM:
 - GPU : Nvidia Tesla V100 16 Go
 - Ram : 30 Go
 - OS  : Ubuntu 18.04
+
+#### Runtime
+
+
+**Training runtime per epoch using Roberta base:**
+
+
+|         GPU | lenght=128 batch=16 | lenght=128 batch=32 | lenght=256 batch=16 | lenght=256 batch=32 |
+|------------:|--------------------:|--------------------:|--------------------:|--------------------:|
+|    GTX 1060 |            1h 23min |       Out of memory |       Out of memory |       Out of memory |
+|    Tesla T4 |         26 min 40 s |         21 min 29 s |         45 min 52 s |          42 min 44s |
+| Tesla  V100 |         14 min 35 s |          9 min 18 s |          20 min 2 s |         15 min 17 s |
+
+
+
+**Preprocessing runtime by preprocessing task :**
+| Nb Core | Cleaning |    Language | Complexity |        Distance |
+|--------:|---------:|------------:|-----------:|----------------:|
+|       1 |     30 s | 13 min 57 s | 2 min 19 s | 1 h 56 min 21 s |
+|       2 |     16 s |  6 min 57 s |       55 s |         1h 34 s |
+|       4 |      9 s |  3 min 45 s |       26 s |     29 min 54 s |
+|       8 |      8 s |  3 min 16 s |       24 s |     20 min 44 s |
+
 
 *********
 # Reproductibility
