@@ -30,8 +30,7 @@ The **test set** contains **54,300 sample** of job descriptions as well as their
 The original aspect of this competition is that there will be 3 tracks on which solutions will be ranked. First of all, solutions are ranked according to the Macro F1 metric, which will be used to build the [Kaggle leaderboard](https://www.kaggle.com/c/defi-ia-insa-toulouse/leaderboard). The Macro F1 score is simply the arithmetic average of the F1 score for each class.
 
 
-> carotte
-> pomme de terre
+> The F1 score can be interpreted as a weighted average of the precision and recall, where an F1 score reaches its best value at 1 and worst score at 0. The relative contribution of precision and recall to the F1 score are equal.
 
 ##  Results
 We ended at the `14th place` in the private leaderboard with a private score of `0.81026`.
@@ -113,9 +112,48 @@ bash download_data.sh
 ```
 
 #### Training
+To train a single or multiple model at the same time, use the provided script inside the `script` directory.
+
+##### Single model
+You can chose the model and its hyperparamters in the beginning of the script `run_single.py` :
+
 ```python
-import pickle
+TEST = False
+SAMPLE = 1000
+EPOCH = 2
+LENGTH = 128
+BATCH = 16
+FAMILY = "roberta"
+FAMILYMODEL = "roberta-base"
 ```
+Where :
+- TEST : whether you just want to see if the whole script run (`True`) on a subset of the data (`SAMPLE`) or not
+- EPOCH : number of epoch you want to train on
+- LENGHT : lenght use in the transformers model, how many characters should the model take as input
+- BATCH : batchsize use for training and testing
+- FAMILY : type of model or architecture  you want to use (bert, roberta, xlnet, [see more](https://huggingface.co/transformers/pretrained_models.html))
+- FAMILYMODEL : model id [see more](https://huggingface.co/transformers/pretrained_models.html)
+
+Once you have set the parameters of the model you want to train, execute the script inside the script directory:
+
+```bash
+cd script
+python run_single.py
+```
+
+The trained model will be saved as a `pickle` file in the `/model` directory and can be used to do some inference later on.
+The saving format is as follow :  `FAMILYMODEL_LENGTH_EPOCH.pkl`.
+Ex: `roberta-base_32_2.pkl` for a roberta-base model train on a lenght of 32 for 2 epochs
+
+##### Multiple model
+Another script is provided to train multiple model at the same time. The same parameters can be found in the beginning of the script `run_multiple.py` except that you have to manually set the `FAMILY` and `FAMILYMODEL` inside the script :
+
+```python
+model = ClassificationModel(
+    FAMILY, FAMILYMODEL, num_labels=len(eval_df.labels.unique()), args=model_args)
+```
+The models is saved the same way as for training a single model (see before).
+
 
 #### Prediction
 

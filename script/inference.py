@@ -2,8 +2,11 @@ TEST = False
 N = 1000
 import pickle
 
-train = pickle.load(open("train.pkl", "rb"))
-test = pickle.load(open("test.pkl", "rb"))
+model_path = "../model/"
+data_path = "../data/"
+train = pickle.load(open(data_path + "train.pkl", "rb"))
+test = pickle.load(open(data_path + "test.pkl", "rb"))
+
 if TEST:
     train.cleaned = train.cleaned[0:N]
     test.cleaned = test.cleaned[0:N]
