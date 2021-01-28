@@ -3,19 +3,20 @@
 
 
 
+
 - [Description](#description)
-      - [Data](#data)
-      - [Evaluation](#evaluation)
+    - [Data](#data)
+    - [Evaluation](#evaluation)
 - [Results](#results)
 - [Computing Resources](#computing-resources)
-      - [Runtime](#runtime)
+    - [Runtime](#runtime)
 - [Reproductibility](#reproductibility)
-      - [Environment](#environment)
-      - [Downloading data](#downloading-data)
-      - [Training](#training)
-          - [Single model](#single-model)
-          - [Multiple model](#multiple-model)
-      - [Prediction](#prediction)
+    - [Environment](#environment)
+    - [Downloading data](#downloading-data)
+    - [Training](#training)
+      - [Single model](#single-model)
+      - [Multiple model](#multiple-model)
+    - [Prediction](#prediction)
 - [Author](#author)
 
 # Description
@@ -150,9 +151,9 @@ cd script/
 python run_single.py
 ```
 
-The trained model will be saved as a `pickle` file in the `/model` directory and can be used to do some inference later on.
+The trained model will be saved as a `pickle` file in the `/model` directory and can be used for prediction later on.
 The saving format is as follow :  `FAMILYMODEL_LENGTH_EPOCH.pkl`.
-Ex: `roberta-base_32_2.pkl` for a roberta-base model train on a lenght of 32 for 2 epochs
+Ex: `roberta-base_32_2.pkl` for a roberta-base model trained on a lenght of 32 for 2 epochs
 
 #### Multiple model
 Another script is provided to train multiple model at the same time. The same parameters can be found in the beginning of the script `run_multiple.py` except that you have to manually set the `FAMILY` and `FAMILYMODEL` inside the script :
@@ -177,7 +178,8 @@ test = pickle.load(open(data_path + "test.pkl", "rb"))
 roberta = pickle.load(open(model_path+"roberta.pkl", "rb"))
 test["prediction"], probabilities = roberta.predict(test.cleaned)
 ```
-Change `roberta.pkl` into the name of your model. A few models are provided in the `/model` directory but you have to download them using the provided bash script :
+Change `roberta.pkl` into the name of your model.
+A few models are provided in the `/model` directory but you have to download them using the provided bash script :
 
 ```bash
 cd model/
