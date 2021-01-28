@@ -39,18 +39,18 @@ We ended at the `14th place` in the private leaderboard with a private score of 
 Below are all of our submissions from latest to first submission.
 
 
-| N° | Submissions                                   | Private Score | Public Score |
-|----|-----------------------------------------------|---------------|--------------|
-| 10 | Roberta Bert Xlnet 2 epochs voting lenght 256 | 0.81026       | 0.80776      |
-| 9  | Roberta Bert Xlnet 2 epochs voting            | 0.80636       | 0.80179      |
-| 8  | Roberta base 2 epochs first phrase 20 characs | 0.69292       | 0.68064      |
-| 7  | Roberta base 2 epochs clean text              | 0.79886       | 0.79813      |
-| 6  | Roberta Large 3 epochs                        | 0.77888       | 0.78147      |
-| 5  | Roberta Base 5 epochs                         | 0.79442       | 0.79318      |
-| 4  | xlnet-base-cased 2 epochs                     | 0.79953       | 0.79171      |
-| 3  | Roberta-base 2 epochs                         | 0.79903       | 0.79789      |
-| 2  | Bert-base-cased 2 epochs                      | 0.79475       | 0.79647      |
-| 1  | ULMFIT                                        | 0.78005       | 0.77978      |
+| N°  | Submissions                                   | Private Score | Public Score |
+| --- | --------------------------------------------- | ------------- | ------------ |
+| 10  | Roberta Bert Xlnet 2 epochs voting lenght 256 | 0.81026       | 0.80776      |
+| 9   | Roberta Bert Xlnet 2 epochs voting            | 0.80636       | 0.80179      |
+| 8   | Roberta base 2 epochs first phrase 20 characs | 0.69292       | 0.68064      |
+| 7   | Roberta base 2 epochs clean text              | 0.79886       | 0.79813      |
+| 6   | Roberta Large 3 epochs                        | 0.77888       | 0.78147      |
+| 5   | Roberta Base 5 epochs                         | 0.79442       | 0.79318      |
+| 4   | xlnet-base-cased 2 epochs                     | 0.79953       | 0.79171      |
+| 3   | Roberta-base 2 epochs                         | 0.79903       | 0.79789      |
+| 2   | Bert-base-cased 2 epochs                      | 0.79475       | 0.79647      |
+| 1   | ULMFIT                                        | 0.78005       | 0.77978      |
 
 
 
@@ -59,21 +59,21 @@ Training runtime per epoch using Roberta base:
 
 
 
-GPU | lenght=128 batch=16 | lenght=128 batch=32 | lenght=256 batch=16 | lenght=256 batch=32 |
-|--------------|-----------|-----|---|---|
-GTX 1060  | 1h 23min | Out of memory | Out of memory | Out of memory |
-K80  | ...s | ...s | ...s | ...s |
-V100  | ...s | ...s | ...s | ...s |
+|      GPU | lenght=128 batch=16 | lenght=128 batch=32 | lenght=256 batch=16 | lenght=256 batch=32 |
+|---------:|--------------------:|--------------------:|--------------------:|--------------------:|
+| GTX 1060 |            1h 23min |       Out of memory |       Out of memory |       Out of memory |
+|       T4 |         26 min 40 s |         21 min 29 s |         45 min 52 s |          42 min 44s |
+|     V100 |         14 min 35 s |          9 min 18 s |          20 min 2 s |         15 min 17 s |
 
 
 
 Preprocessing runtime by preprocessing task :
-Nb Core | Cleaning | Language | Complexity | Distance |
-|--------------|-----------|-----|---|---|
-1| 30 s | 13 min 57 s | 2 min 19 s |1 h 56 min 21 s |
-2  | 16 s | 6 min 57 s | 55 s |1h 34s |
-4  | 9 s | 3 min 45 s| 26 s |29 min 54 s |
-8  | 8 s | 3 min 16 s| 24 s |20 min 44 s |
+| Nb Core | Cleaning |    Language | Complexity |        Distance |
+| ------: | -------: | ----------: | ---------: | --------------: |
+|       1 |     30 s | 13 min 57 s | 2 min 19 s | 1 h 56 min 21 s |
+|       2 |     16 s |  6 min 57 s |       55 s |          1h 34s |
+|       4 |      9 s |  3 min 45 s |       26 s |     29 min 54 s |
+|       8 |      8 s |  3 min 16 s |       24 s |     20 min 44 s |
 
 
 
@@ -105,6 +105,12 @@ pip install -r requirements.txt
 ```
 
 #### Downloading data
+You also  have to download all the data in the `/data/` directory. A bash script is provided to do so. You have to execute the bash script inside the data directory.
+
+```bash
+cd data/
+bash download_data.sh
+```
 
 #### Training
 ```python
@@ -128,9 +134,3 @@ python run
 👤 **Thibault DELMON**
 👤 **Thibaut HERNANDEZ**
 👤 **Thomas HUSTACHE**
-
-
-
-## Show your support
-
-Give a ⭐️ if this project helped you!

@@ -1,7 +1,7 @@
-TEST = False
+TEST = True
 SAMPLE = 1000
 EPOCH = 2
-LENGTH = 256
+LENGTH = 128
 BATCH = 16
 FAMILY = "roberta"
 FAMILYMODEL = "roberta-base"
@@ -20,8 +20,7 @@ logging.set_verbosity_warning()
 print("Load Data")
 
 data_path = "../data/"
-train_file = "../data/train.pkl"
-test_file = "../data/test.pkl"
+
 
 train = pickle.load(open(data_path + "train.pkl", "rb"))
 test = pickle.load(open(data_path + "test.pkl", "rb"))
@@ -93,7 +92,10 @@ model_path = "../data/"
 
 
 pickle.dump(
-    model, open(model_path + FAMILYMODEL + "_" + LENGTH + "_" + EPOCH + ".pkl", "wb")
+    model,
+    open(
+        model_path + FAMILYMODEL + "_" + str(LENGTH) + "_" + str(EPOCH) + ".pkl", "wb"
+    ),
 )
 
 print("Creating Kaggle Submission")

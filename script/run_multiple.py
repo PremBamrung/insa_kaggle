@@ -115,10 +115,16 @@ print("F1 score : ", f1)
 print("Accuracy score : ", accuracy)
 print("Saving model")
 
-model_path = "../data/"
-pickle.dump(bert, open(model_path + "bert" + LENGTH + "_" + EPOCH + ".pkl", "wb"))
-pickle.dump(xlnet, open(model_path + "xlnet" + LENGTH + "_" + EPOCH + "pkl", "wb"))
-pickle.dump(roberta, open(model_path + "roberta" + LENGTH + "_" + EPOCH + "pkl", "wb"))
+model_path = "../model/"
+pickle.dump(
+    bert, open(model_path + "bert" + str(LENGTH) + "_" + str(EPOCH) + ".pkl", "wb")
+)
+pickle.dump(
+    xlnet, open(model_path + "xlnet" + str(LENGTH) + "_" + str(EPOCH) + "pkl", "wb")
+)
+pickle.dump(
+    roberta, open(model_path + "roberta" + str(LENGTH) + "_" + str(EPOCH) + "pkl", "wb")
+)
 
 
 print("Creating Kaggle Submission")
