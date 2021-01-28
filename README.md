@@ -24,13 +24,13 @@ This is our repository for the  5th edition of the so-called Défi IA.
 
 This edition of the Défi IA pertains to NLP. The task is straightforward: assign the correct job category to a job description. This is thus a **multi-class classification** task with 28 classes to choose from.
 
-#### Data
+### Data
 The data has been retrieved from CommonCrawl. The latter has been famously used to train OpenAI's GPT-3 model. The data is therefore representative of what can be found on the English speaking part of the Internet, and thus contains a certain amount of bias. One of the goals of this competition is to design a solution that is both accurate as well as fair.
 The **train set** contains **217,197 sample** of job descriptions  as well as their labels and genders.
 The **test set** contains **54,300 sample** of job descriptions as well as their genders. This is the set used for submissions.
 
 
-#### Evaluation
+### Evaluation
 
 The original aspect of this competition is that there will be 3 tracks on which solutions will be ranked. First of all, solutions are ranked according to the Macro F1 metric, which will be used to build the [Kaggle leaderboard](https://www.kaggle.com/c/defi-ia-insa-toulouse/leaderboard). From Scikit-learn documentation :
 
@@ -78,7 +78,7 @@ Complete training was done on Google Cloud Platform VM:
 - Ram : 30 Go
 - OS  : Ubuntu 18.04
 
-#### Runtime
+### Runtime
 
 
 **Training runtime per epoch using Roberta base:**
@@ -103,7 +103,7 @@ Complete training was done on Google Cloud Platform VM:
 
 *********
 # Reproductibility
-#### Environment
+### Environment
 In order to reproduce our result, you have to recreate our virtual environment. We recommend using `conda` to create an environment and to install the dependencies using the `requirements.txt` file.
 
 ```bash
@@ -112,7 +112,7 @@ conda activate defi_ia
 pip install -r requirements.txt
 ```
 
-#### Downloading data
+### Downloading data
 You also  have to download all the data in the `/data` directory. A bash script is provided to do so. You have to execute the bash script inside the data directory.
 
 ```bash
@@ -120,10 +120,10 @@ cd data/
 bash download_data.sh
 ```
 
-#### Training
+### Training
 To train a single or multiple model at the same time, use the provided script inside the `/script` directory.
 
-###### Single model
+#### Single model
 You can chose the model and its hyperparamters in the beginning of the script `run_single.py` :
 
 ```python
@@ -154,7 +154,7 @@ The trained model will be saved as a `pickle` file in the `/model` directory and
 The saving format is as follow :  `FAMILYMODEL_LENGTH_EPOCH.pkl`.
 Ex: `roberta-base_32_2.pkl` for a roberta-base model train on a lenght of 32 for 2 epochs
 
-###### Multiple model
+#### Multiple model
 Another script is provided to train multiple model at the same time. The same parameters can be found in the beginning of the script `run_multiple.py` except that you have to manually set the `FAMILY` and `FAMILYMODEL` inside the script :
 
 ```python
@@ -164,7 +164,7 @@ model = ClassificationModel(
 The models is saved the same way as for training a single model (see before).
 
 
-#### Prediction
+### Prediction
 To run prediction from a trained model, import it with `pickle` and use the `predict` method on data. This methods return 2 outputs : label prediction, probabilities of each label.
 
 ```python
