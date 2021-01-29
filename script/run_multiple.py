@@ -11,6 +11,7 @@ from sklearn.model_selection import train_test_split
 import pickle
 from datetime import datetime
 from transformers import logging
+from simpletransformers.classification import ClassificationModel, ClassificationArgs
 
 logging.set_verbosity_warning()
 
@@ -42,15 +43,6 @@ if TEST:
     eval_df = eval_df[0:SAMPLE]
     train_df = eval_df[0:SAMPLE]
 
-
-from simpletransformers.classification import ClassificationModel, ClassificationArgs
-import pandas as pd
-import logging
-
-
-# logging.basicConfig(level=logging.INFO)
-# transformers_logger = logging.getLogger("transformers")
-# transformers_logger.setLevel(logging.WARNING)
 
 print("Defining model")
 
