@@ -88,7 +88,7 @@ print("F1 score : ", f1)
 print("Accuracy score : ", accuracy)
 
 print("Saving model")
-model_path = "../data/"
+model_path = "../model/"
 
 
 pickle.dump(

@@ -47,21 +47,23 @@ We ended at the `14th place` in the private leaderboard with a private score of 
 Below are all of our submissions from latest to first submission.
 
 
-| N°  |                                   Submissions | Private Score | Public Score |
-| --- | --------------------------------------------: | ------------: | -----------: |
-| 10  | Roberta Bert Xlnet 2 epochs voting lenght 256 |   **0.81026** |      0.80776 |
-| 9   |            Roberta Bert Xlnet 2 epochs voting |       0.80636 |      0.80179 |
-| 8   | Roberta base 2 epochs first phrase 20 characs |       0.69292 |      0.68064 |
-| 7   |              Roberta base 2 epochs clean text |       0.79886 |      0.79813 |
-| 6   |                        Roberta Large 3 epochs |       0.77888 |      0.78147 |
-| 5   |                         Roberta Base 5 epochs |       0.79442 |      0.79318 |
-| 4   |                     xlnet-base-cased 2 epochs |       0.79953 |      0.79171 |
-| 3   |                         Roberta-base 2 epochs |       0.79903 |      0.79789 |
-| 2   |                      Bert-base-cased 2 epochs |       0.79475 |      0.79647 |
-| 1   |                                        ULMFIT |       0.78005 |      0.77978 |
+| N° | Submissions                                   | Private Score | Public Score |
+|----|-----------------------------------------------|---------------|--------------|
+| 10 | Roberta Bert Xlnet 2 epochs voting lenght 256 | **0.81026**   | 0.80776      |
+| 9  | Roberta Bert Xlnet 2 epochs voting            | 0.80636       | 0.80179      |
+| 8  | Roberta base 2 epochs first phrase 20 characs | 0.69292       | 0.68064      |
+| 7  | Roberta base 2 epochs clean text              | 0.79886       | **0.79813**  |
+| 6  | Roberta Large 3 epochs                        | 0.77888       | 0.78147      |
+| 5  | Roberta Base 5 epochs                         | 0.79442       | 0.79318      |
+| 4  | xlnet-base-cased 2 epochs                     | **0.79953**   | 0.79171      |
+| 3  | Roberta-base 2 epochs                         | 0.79903       | 0.79789      |
+| 2  | Bert-base-cased 2 epochs                      | 0.79475       | 0.79647      |
+| 1  | ULMFIT                                        | 0.78005       | 0.77978      |
 
 
-
+* Our best submission is the one where we assembled 3 models (Roberta, Bert and XLNet) trained on a length  of 256 with a batchsize of 32 on 2 epochs. We used hard voting (majority) to assemble predictions.
+* We could have gotten better scores using soft voting and by aggregating more models.
+* Our best submission with a single model was with a Roberta model on the public leaderboard and with a XLNet model on the private leaderboard.
 
 
 
@@ -95,6 +97,7 @@ Complete training was done on Google Cloud Platform VM:
 |    Tesla T4 |         26 min 40 s |         21 min 29 s |         45 min 52 s |          42 min 44s |
 | Tesla  V100 |         14 min 35 s |          9 min 18 s |          20 min 2 s |         15 min 17 s |
 
+Choosing to use a VM with a Tesla V100 has allowed us to reduce training time considerably as shown in our runtime table. Knowing that we vary between 2 and 5 epochs, and that we have to test several models by changing the hyperparameters, the time saved in the end is immense.
 
 
 **Preprocessing runtime by preprocessing task :**
@@ -105,7 +108,7 @@ Complete training was done on Google Cloud Platform VM:
 |       4 |      9 s |  3 min 45 s |       26 s |     29 min 54 s |
 |       8 |      8 s |  3 min 16 s |       24 s |     20 min 44 s |
 
-
+During pre-processing, we saw a very large saving in execution time by parallelizing our functions. While
 *********
 # Reproductibility
 ### Environment
