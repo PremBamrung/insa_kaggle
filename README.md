@@ -1,4 +1,4 @@
-# <h1 align="center">Welcome to our [<img src="https://kaggle.com/static/images/site-logo.png" height="50" style="margin-bottom:-15px" />](https://kaggle.com) repo 👋</h1>
+# <h1 align="center">Welcome to our [<img src="https://kaggle.com/static/images/site-logo.png" height="50" style="margin-bottom:-30px" />](https://kaggle.com) repo 👋</h1>
 
 
 
@@ -88,7 +88,7 @@ Complete training was done on Google Cloud Platform VM:
 ### Runtime
 
 
-**Training runtime per epoch using Roberta base:**
+* **Training runtime per epoch using Roberta base:**
 
 
 |         GPU | lenght=128 batch=16 | lenght=128 batch=32 | lenght=256 batch=16 | lenght=256 batch=32 |
@@ -100,7 +100,8 @@ Complete training was done on Google Cloud Platform VM:
 Choosing to use a VM with a Tesla V100 has allowed us to reduce training time considerably as shown in our runtime table. Knowing that we vary between 2 and 5 epochs, and that we have to test several models by changing the hyperparameters, the time saved in the end is immense.
 
 
-**Preprocessing runtime by preprocessing task :**
+* **Preprocessing runtime by preprocessing task :**
+
 | Nb Core | Cleaning |    Language | Complexity |        Distance |
 | ------: | -------: | ----------: | ---------: | --------------: |
 |       1 |     30 s | 13 min 57 s | 2 min 19 s | 1 h 56 min 21 s |
@@ -108,7 +109,18 @@ Choosing to use a VM with a Tesla V100 has allowed us to reduce training time co
 |       4 |      9 s |  3 min 45 s |       26 s |     29 min 54 s |
 |       8 |      8 s |  3 min 16 s |       24 s |     20 min 44 s |
 
-During pre-processing, we saw a very large saving in execution time by parallelizing our functions. While
+During pre-processing, we saw a very large saving in execution time by parallelizing our functions.
+This optimization step was not essential but this helps in trying multiple preprocessing pipeline quickly.
+The dataset was not big enough to scale up the number of CPU cores, therefore we kept preprocessing on our desktop rather than setting up another VM with extra CPU cores.
+
+| Task       | Description          | Implementation | Speed-up (8 cores) |
+|------------|----------------------|----------------|--------------------|
+| Cleaning   | Text cleaning        | regex          | **3.75**           |
+| Language   | Detect language      | langdetect     | **4.27**           |
+| Complexity | Flesch Reading Ease  | textstat       | **5.79**           |
+| Distance   | Levenshtein distance | numpy+ numba   | **5.61**           |
+
+
 *********
 # Reproductibility
 ### Environment
